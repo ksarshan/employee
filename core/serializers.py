@@ -60,7 +60,6 @@ class FileSerializer(serializers.ModelSerializer):
         if len(set(csv_filed).union(set(csv_data.columns.values))) != 5:
             error['invalid_headers'] = 'invalid Headers'
         for i in [list(x) for x in csv_data.values]:
-            print(i)
             if not all(i):
                 error['empty_filed'] = 'empty value in csv'
         return error
