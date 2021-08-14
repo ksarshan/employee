@@ -39,6 +39,9 @@ You will then be prompted for your desired email address:
 The final step is to enter your password. You will be asked to enter your password twice, the second time as a confirmation of the first.
 
 
+
+runserver
+
 ```sh
 (env)$ cd project
 (env)$ python manage.py runserver
