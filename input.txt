@@ -1,0 +1,138 @@
+Accept the following POST parameters: username, password
+Return the REST Framework Token Object's key.
+
+OPTIONS /auth/login/
+HTTP 200 OK
+Allow: POST, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    "name": "Login",
+    "description": "Check the credentials and return the REST Token\nif the credentials are valid and authenticated.\nCalls Django Auth login method to register User ID\nin Django session framework\n\nAccept the following POST parameters: username, password\nReturn the REST Framework Token Object's key.",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "actions": {
+        "POST": {
+            "username": {
+                "type": "string",
+                "required": false,
+                "read_only": false,
+                "label": "Username"
+            },
+            "email": {
+                "type": "email",
+                "required": true,
+                "read_only": false,
+                "label": "Email"
+            },
+            "password": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Password"
+            }
+        }
+    }
+}
+
+
+Employee List
+List all Employee
+
+OPTIONS /employee/
+HTTP 200 OK
+Allow: GET, POST, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    "name": "Employee List",
+    "description": "List all Employee",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "actions": {
+        "POST": {
+            "id": {
+                "type": "integer",
+                "required": false,
+                "read_only": true,
+                "label": "ID"
+            },
+            "emp_code": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Emp code",
+                "max_length": 100
+            },
+            "emp_name": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Emp name",
+                "max_length": 100
+            },
+            "department": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Department",
+                "max_length": 100
+            },
+            "age": {
+                "type": "integer",
+                "required": true,
+                "read_only": false,
+                "label": "Age"
+            },
+            "experience": {
+                "type": "integer",
+                "required": true,
+                "read_only": false,
+                "label": "Experience"
+            }
+        }
+    }
+}
+
+
+File Upload
+OPTIONS /csv_upload/
+HTTP 200 OK
+Allow: POST, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    "name": "File Upload",
+    "description": "",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "multipart/form-data",
+        "application/x-www-form-urlencoded"
+    ]
+     "file": {
+                "type": multipart,
+                "required": true,
+                "read_only": false,
+                "label": "File"
+            }
+}
